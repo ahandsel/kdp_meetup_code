@@ -1,0 +1,78 @@
+# Mac_A_Symbols_in_cURL
+----------------------------------------
+## Symbols in cURL
+
+### Example cURL GET API Call:
+curl -X GET 'https://devevents.kintone.com/k/v1/record.json' \
+      -H 'X-Cybozu-API-Token: _Token_Here_' \
+      -H 'Content-Type: application/json' \
+      -d '{"app": 1, "id": 1}'
+
+### Symbols' Meaning
+curl  <-- command-line tool for transferring data
+ -X   <-- short for ' --request ';  used to set request method & endpoint
+ -H   <-- short for ' --header ';   used to set the header option
+ -d   <-- short for ' --data ';     used to set the body component
+  \   <-- add a space & backslash to make a multi-line command
+
+
+
+# Mac_B_GET_Example
+----------------------------------------
+## In a single-line format:
+curl -X GET 'https://devevents.kintone.com/k/v1/record.json' -H 'X-Cybozu-API-Token: E4MYYOKtoa1IjRpt0sSJeBscjd6oXPV6ueIZ2qFV' -H 'Content-Type: application/json' -d '{"app": 1, "id": 1}'
+
+## In multi-line format:
+curl -X GET 'https://devevents.kintone.com/k/v1/record.json'\
+  -H 'X-Cybozu-API-Token: E4MYYOKtoa1IjRpt0sSJeBscjd6oXPV6ueIZ2qFV'\
+  -H 'Content-Type: application/json'\
+  -d '{"app": 1, "id": 1}'
+
+
+
+# Mac_C_GET_Template
+----------------------------------------
+## Be sure to Insert your Subdomain, Token, App ID, and Record ID!
+
+## In a single-line format:
+curl -X GET 'https://INSERT_SUBDOMAIN.kintone.com/k/v1/record.json' -H 'X-Cybozu-API-Token: INSERT_TOKEN' -H 'Content-Type: application/json' -d '{"app": INSERT_APPID, "id": INSERT_RECORDID}'
+
+## In multi-line format:
+curl -X GET 'https://INSERT_SUBDOMAIN.kintone.com/k/v1/record.json'\
+  -H 'X-Cybozu-API-Token: INSERT_TOKEN'\
+  -H 'Content-Type: application/json'\
+  -d '{"app": INSERT_APPID, "id": INSERT_RECORDID}'
+
+
+
+# Mac_D_POST_Template
+----------------------------------------
+## Mac Terminal POST Template
+#Be sure to Insert your Subdomain, Token, App ID, and Data!
+
+## In a single-line format:
+curl -X POST 'https://INSERT_SUBDOMAIN.kintone.com/k/v1/record.json' -H 'X-Cybozu-API-Token: INSERT_TOKEN' -H 'Content-Type: application/json' -d '{"app": INSERT_APPID, "record": {"name": {"value": "John Snow"}, "show": {"value": "Game of Thrones!"}}}'
+
+## In multi-line format:
+curl -X POST 'https://INSERT_SUBDOMAIN.kintone.com/k/v1/record.json' \
+  -H 'X-Cybozu-API-Token: INSERT_TOKEN' \
+  -H 'Content-Type: application/json' \
+  -d '{"app": INSERT_APPID, "record": {"name": {"value": "John Snow"}, "show": {"value": "Game of Thrones!"}}}'
+
+
+
+# Mac_E_Github_Zen_curl
+----------------------------------------
+curl -X GET 'https://api.github.com/zen'
+
+
+
+# Mac_F_Github_User_curl
+----------------------------------------
+## Remember to insert your Github username & Personal Access Token
+
+## Public
+curl -X GET 'https://api.github.com/users/<USERNAME>'
+
+## Private
+curl -X GET 'https://api.github.com/users/<USERNAME>' -H 'Authorization: Token <PERSONAL ACCESS TOKEN>'

@@ -1,0 +1,94 @@
+# Windows_A_Symbols_in_Invoke-WebRequest
+----------------------------------------
+## Symbols in PowerShell's Invoke-WebRequest
+
+## Example Invoke-WebRequest GET API Call
+Invoke-WebRequest -Headers @{'X-Cybozu-API-Token' = 'E4MYYOKtoa1IjRpt0sSJeBscjd6oXPV6ueIZ2qFV'} `
+  -Method GET `
+  -Uri https://devevents.kintone.com/k/v1/record.json `
+  -Body @{'app' = '1'; 'id'= '1'} `
+  -OutFile GET_API_Output.txt
+
+## Symbols' Meaning
+Invoke-WebRequest <-- cmdlets tool for transferring data
+  -Headers        <-- setting the header option
+  -Method         <-- setting the request method
+  -Uri            <-- setting the Endpoint component
+  -Body           <-- setting the body component
+   `              <-- add a space & grave accent for multi-line commands
+  @{…}            <-- saves the information as a hash table
+  -OutFile XYZ    <-- saves the output of the PowerShell command into the file named 'XYZ'
+
+
+
+# Windows_B_GET_Example
+----------------------------------------
+## The full JSON output is stored in the newly generated GET_API_Output.txt file
+
+## In a single-line format:
+Invoke-WebRequest -Headers @{'X-Cybozu-API-Token' = 'E4MYYOKtoa1IjRpt0sSJeBscjd6oXPV6ueIZ2qFV'} -Method GET -Uri https://devevents.kintone.com/k/v1/record.json -Body @{'app' = '1'; 'id'= '1'} -OutFile GET_API_Output.txt
+
+## In multi-line format:
+Invoke-WebRequest -Headers @{'X-Cybozu-API-Token' = 'E4MYYOKtoa1IjRpt0sSJeBscjd6oXPV6ueIZ2qFV'} `
+  -Method GET `
+  -Uri https://devevents.kintone.com/k/v1/record.json `
+  -Body @{'app' = '1'; 'id'= '1'} `
+  -OutFile GET_API_Output.txt
+
+
+
+# Windows_C_PowerShell_Debug
+----------------------------------------
+## Check the TLS version used:
+[Net.ServicePointManager]::SecurityProtocol
+
+## Set TLS 1.2 with the following command:
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+
+
+# Windows_D_GET_Template
+----------------------------------------
+## Be sure to Insert your Subdomain, Token, App ID, and Record ID!
+
+## In a single-line format:
+Invoke-WebRequest -Headers @{'X-Cybozu-API-Token' = 'INSERT_TOKEN'} -Method GET -Uri https://INSERT_SUBDOMAIN.kintone.com/k/v1/record.json -Body @{'app' = 'INSERT_APPID'; 'id'= 'INSERT_RECORDID'} -OutFile GET_API_Output.txt
+
+## In multi-line format:
+Invoke-WebRequest -Headers @{'X-Cybozu-API-Token' = 'INSERT_TOKEN'} `
+  -Method GET `
+  -Uri https://INSERT_SUBDOMAIN.kintone.com/k/v1/record.json `
+  -Body @{'app' = 'INSERT_APPID'; 'id'= 'INSERT_RECORDID'} `
+  -OutFile GET_API_Output.txt
+
+
+
+# Windows_E_POST_Template
+----------------------------------------
+## Windows PowerShell POST Template
+## Be sure to Insert your Subdomain, Token, App ID, and Data!
+
+## In a single-line format:
+Invoke-WebRequest –Headers @{'X-Cybozu-API-Token' = 'INSERT_TOKEN' ; 'Content-Type' = 'application/json'} –Method POST –Uri https://INSERT_SUBDOMAIN.kintone.com/k/v1/record.json –Body '{"app": INSERT_APPID, "record": {"name": {"value": "John Snow"}, "show": {"value": "Game of Thrones!"}}}'
+
+## In multi-line format:
+Invoke-WebRequest `
+  –Headers @{'X-Cybozu-API-Token' = 'INSERT_TOKEN' ; 'Content-Type' = 'application/json'} `
+  –Method POST –Uri https://INSERT_SUBDOMAIN.kintone.com/k/v1/record.json `
+  –Body '{"app": INSERT_APPID, "record": {"name": {"value": "John Snow"}, "show": {"value": "Game of Thrones!"}}}'
+
+# Windows_F_Github_Zen_PowerShell
+----------------------------------------
+Invoke-WebRequest -Method GET -Uri https://api.github.com/zen
+
+
+
+# Windows_H_Github_User_PowerShell
+----------------------------------------
+#Remember to insert your Github username & Personal Access Token
+
+#Public
+Invoke-WebRequest -Method GET -Uri https://api.github.com/users/<USERNAME>
+
+#Private
+Invoke-WebRequest -Headers @{'Authorization' = 'Token <PERSONAL ACCESS TOKEN>'} -Method GET -Uri https://api.github.com/users/<USERNAME>
