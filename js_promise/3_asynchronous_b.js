@@ -37,4 +37,3 @@ Step_A('t-shirt');
 Step_B('underwear');
 Step_C('pants');
 check();
-
