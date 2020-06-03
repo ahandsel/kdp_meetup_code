@@ -15,13 +15,13 @@ function Step_C(clothing) {
   console.log(clothing);
 }
 
-Step_A('T-shirt');
-Step_B('Underwear');
-Step_C('Pants');
+Step_A('t-shirt');
+Step_B('underwear');
+Step_C('jeans');
 
 /* Expected Results
-T-shirt
-Pants
+t-shirt
+jeans
 ...
-Underwear
+underwear
 */

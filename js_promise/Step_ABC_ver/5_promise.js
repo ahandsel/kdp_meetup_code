@@ -20,7 +20,7 @@ function Step_B(clothing) {
   return new Promise(function (resolve, reject) {
     setTimeout(function() {
       human.push(clothing);
-      if (human[2] != 'pants') {
+      if (human[2] != 'jeans') {
         resolve('Step B finished. You got your ' + clothing + ' on!');
       } else {
         reject('You got the order wrong!');
@@ -32,20 +32,20 @@ function Step_B(clothing) {
 function Step_C(clothing) {
   return new Promise(function (resolve, reject) {
     human.push(clothing);
-    if (human.length == 4 && human[3] == 'pants') {
+    if (human.length == 4 && human[3] == 'jeans') {
       resolve('Step C finished. You got your ' + clothing + ' on!\nYou are looking sharp this morning!');
     } else {
-      reject('Oh no! You are wearing underwear over your pants!');
+      reject('Oh no! You are wearing underwear over your jeans!');
     }
   });
 }
 
 Step_A('t-shirt').then(function (resultA) {
   console.log(resultA);
-  return Step_B('underwear');  // change to 'pants' to fail
+  return Step_B('underwear');  // change to 'jeans' to fail
 }).then(function (resultB) {
   console.log(resultB);
-  return Step_C('pants');  // change to 'underwear' to fail
+  return Step_C('jeans');  // change to 'underwear' to fail
 }).then(function (resultC) {
   console.log(resultC);
 }).catch(function (error) {
